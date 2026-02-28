@@ -1,0 +1,319 @@
+/* SideNavbar.css */
+
+.sidenav {
+    width: var(--sidebar-width);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-right: 1px solid var(--background-neutral-default);
+    overflow-y: auto;
+}
+
+.sidenav::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.sidenav-header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--space-xl);
+    flex-shrink: 0;
+}
+
+.company-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    padding-left: 8px;
+}
+
+.company-logo {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-inner {
+    width: 8px;
+    height: 12px;
+    background-color: white;
+    border-radius: 1px;
+}
+
+.company-name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-neutral-default);
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    color: var(--text-neutral-default);
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: var(--background-neutral-default);
+}
+
+.divider {
+    width: 100%;
+    height: var(--space-xl);
+    flex-shrink: 0;
+}
+
+.section-label {
+    padding: 0 var(--space-xl) 0 20px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--text-neutral-faint);
+    flex-shrink: 0;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.nav-item {
+    width: 100%;
+    padding: 0 var(--space-xl);
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--space-md) 0 var(--space-lg);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: var(--background-neutral-default);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    flex: 1;
+}
+
+.nav-icon {
+    color: var(--text-neutral-default);
+    transition: opacity 0.2s ease;
+}
+
+.nav-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-neutral-default);
+}
+
+.nav-text-faint {
+    color: var(--text-neutral-faint);
+}
+
+.badge {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-neutral-subtle);
+    padding: 0 var(--space-md);
+}
+
+.nested-container {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
+    overflow: hidden;
+}
+
+.nested-container.is-expanded {
+    max-height: 200px;
+    /* Large enough to fit content */
+    opacity: 1;
+}
+
+.nested-list {
+    position: relative;
+    padding-left: 0;
+}
+
+/* Vertical connecting line - Fixed height to avoid jerkiness/flexing */
+.nested-list::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: -16px;
+    /* Reaches center of space header avatar */
+    height: 160px;
+    /* Fixed height for 5 items (32px * 5 centres = 160px total span) */
+    width: 1px;
+    background-color: #d5d5d5;
+    z-index: 0;
+}
+
+.space-header {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.header-toggle {
+    display: flex;
+    align-items: center;
+    color: var(--text-neutral-faint);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.space-header:hover .header-toggle {
+    opacity: 1;
+}
+
+.is-expanded>.space-header .header-toggle {
+    color: var(--text-neutral-default);
+}
+
+.nav-item.nested {
+    padding-left: var(--space-8xl);
+}
+
+.nav-item.nested .nav-link {
+    position: relative;
+}
+
+.nav-link.active {
+    background-color: var(--background-neutral-default);
+}
+
+.nav-text.active-text {
+    font-weight: 600;
+}
+
+/* Avatars */
+.avatar {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.support-avatar {
+    background-color: var(--background-accents-orange);
+}
+
+.finance-avatar {
+    background-color: var(--background-accents-purple);
+}
+
+.space-item {
+    margin-top: 2px;
+}
+
+/* Button variants for Browse */
+.as-button {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    width: 100%;
+}
+
+.spacer {
+    flex: 1;
+}
+
+/* Footer */
+.sidenav-footer {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    flex-shrink: 0;
+    margin-bottom: var(--space-md);
+}
+
+.user-profile {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-smooth);
+    background-color: var(--background-accents-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-smooth);
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #2eac68;
+    border: 2px solid var(--background-canvas);
+}
+
+.footer-actions {
+    display: flex;
+    gap: var(--space-md);
+}
