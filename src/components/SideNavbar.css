@@ -69,7 +69,11 @@
     padding: var(--space-md);
     border-radius: var(--radius-md);
     color: var(--text-neutral-default);
-    transition: all 0.2s ease;
+    transition: all 0.2s ease, transform 0.1s ease;
+}
+
+.action-button:active {
+    transform: scale(0.98);
 }
 
 .action-button:hover {
@@ -118,8 +122,12 @@
     height: 100%;
     padding: 0 var(--space-md) 0 var(--space-lg);
     border-radius: var(--radius-lg);
-    transition: all 0.2s ease;
+    transition: all 0.2s ease, transform 0.1s ease;
     cursor: pointer;
+}
+
+.nav-link:active {
+    transform: scale(0.98);
 }
 
 .nav-link:hover {
@@ -286,7 +294,11 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, transform 0.1s ease;
+}
+
+.user-profile:active {
+    transform: scale(0.98);
 }
 
 .profile-image {

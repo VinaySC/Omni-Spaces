@@ -14,7 +14,7 @@ import {
     TeamsIcon,
     TemplatesIcon
 } from './icons';
-import { Settings, HelpCircle, ChevronDown, ChevronRight } from 'lucide-react';
+import { Settings, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import './SideNavbar.css';
 
 export default function SideNavbar() {
@@ -98,7 +98,7 @@ export default function SideNavbar() {
                             <span className="nav-text">Support</span>
                         </div>
                         <div className="header-toggle">
-                            {expandedSpaces.support ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                            {expandedSpaces.support ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@ export default function SideNavbar() {
                             <span className="nav-text">Finance</span>
                         </div>
                         <div className="header-toggle">
-                            {expandedSpaces.finance ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                            {expandedSpaces.finance ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                         </div>
                     </div>
                 </div>

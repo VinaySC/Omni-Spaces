@@ -8,11 +8,23 @@
   --background-accents-purple: #9684fb;
   --background-neutral-default: #e5e5e5;
   --background-hover: #eaf1fb;
+  --background-accents-green-soft: #f2fdf6;
+  --background-accents-gray-soft: #e5e5e5;
+  --background-accents-blue-soft: #ebf7ff;
+  --background-accents-voilet-soft: #fdf5ff;
+
+  --border-neutral-subtle: #e5e5e5;
+  --border-slate-blue-subtle: #e2e8f0;
+  --border-brand-emphasis: #ee8864;
+  --border-light: #ecebe7;
 
   --text-neutral-default: #0f172a;
   --text-neutral-subtle: #475569;
   --text-neutral-faint: #64758b;
   --text-white: #ffffff;
+  --text-accent-green: #086e3f;
+  --text-accent-blue: #065b89;
+  --text-accent-voilet: #7e178c;
 
   /* Typography */
   --font-family: 'Inter', sans-serif;
