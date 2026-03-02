@@ -12,11 +12,13 @@
   --background-accents-gray-soft: #e5e5e5;
   --background-accents-blue-soft: #ebf7ff;
   --background-accents-voilet-soft: #fdf5ff;
+  --background-info-subtle: #fafdff;
 
   --border-neutral-subtle: #e5e5e5;
   --border-slate-blue-subtle: #e2e8f0;
   --border-brand-emphasis: #ee8864;
   --border-light: #ecebe7;
+  --border-info-default: #0081c2;
 
   --text-neutral-default: #0f172a;
   --text-neutral-subtle: #475569;

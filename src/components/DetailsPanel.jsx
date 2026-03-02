@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import {
     MailIcon,
     PositiveIcon,
@@ -14,6 +14,9 @@ import './DetailsPanel.css';
 
 export default function DetailsPanel() {
     const [activeTab, setActiveTab] = useState('Details');
+    const [indicatorStyle, setIndicatorStyle] = useState({});
+    const tabRefs = useRef({});
+
     const [expandedSections, setExpandedSections] = useState({
         tags: true, // Defaulting some to expanded for demo
         customFields: true,
@@ -30,6 +33,17 @@ export default function DetailsPanel() {
 
     const tabs = ['Details', 'Co-Pilot', 'Apps'];
 
+    useLayoutEffect(() => {
+        const activeTabElement = tabRefs.current[activeTab];
+        if (activeTabElement) {
+            const { offsetLeft, offsetWidth } = activeTabElement;
+            setIndicatorStyle({
+                left: `${offsetLeft}px`,
+                width: `${offsetWidth}px`
+            });
+        }
+    }, [activeTab]);
+
     return (
         <aside className="details-panel">
             {/* Header Tabs */}
@@ -38,19 +52,16 @@ export default function DetailsPanel() {
                     {tabs.map((tab) => (
                         <button
                             key={tab}
+                            ref={el => tabRefs.current[tab] = el}
                             className={`tab-item ${activeTab === tab ? 'active' : ''}`}
                             onClick={() => setActiveTab(tab)}
                         >
                             {tab}
                         </button>
                     ))}
-                    {/* Smooth Sliding Indicator */}
                     <div
                         className="tab-indicator"
-                        style={{
-                            left: `${tabs.indexOf(activeTab) * (100 / tabs.length)}%`,
-                            width: `${100 / tabs.length}%`
-                        }}
+                        style={indicatorStyle}
                     ></div>
                 </div>
                 <button className="panel-action-btn">
