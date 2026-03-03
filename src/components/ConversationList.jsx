@@ -3,7 +3,7 @@ import { MenuCollapseIcon, MenuFilterIcon } from './icons';
 import ConversationItem from './ConversationItem';
 import { MOCK_CONVERSATIONS } from '../data/mockConversations';
 
-const ConversationList = ({ selectedId, onSelect, readIds }) => {
+const ConversationList = ({ selectedId, onSelect, readIds, onFilterClick }) => {
     return (
         <>
             <div className="list-header">
@@ -11,7 +11,7 @@ const ConversationList = ({ selectedId, onSelect, readIds }) => {
                     <MenuCollapseIcon />
                 </div>
                 <div className="header-title">Mine</div>
-                <div className="icon-btn">
+                <div className="icon-btn" onClick={onFilterClick}>
                     <MenuFilterIcon size={20} />
                 </div>
             </div>

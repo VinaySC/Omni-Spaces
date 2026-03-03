@@ -16,6 +16,7 @@
     flex-direction: column;
     flex-shrink: 0;
     user-select: none;
+    position: relative;
 }
 
 .right-side {

@@ -301,6 +301,12 @@ export const ChevronDownIcon = (props) => (
         <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
     </SvgIcon>
 );
+export const CloseIcon = (props) => (
+    <SvgIcon viewBox="0 0 16 16" {...props}>
+        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+    </SvgIcon>
+);
+
 export const CollapseAllIcon = (props) => (
     <SvgIcon size={16} viewBox="0 0 16 16" {...props}>
         <path d="M5.08325 3.75L7.99992 6.66667L10.9166 3.75M5.08325 12.25L7.99992 9.33333L10.9166 12.25" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
