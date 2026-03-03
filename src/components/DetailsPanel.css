@@ -190,7 +190,7 @@
 }
 
 .section-row:hover {
-    background-color: var(--background-neutral-default);
+    background-color: #f5f5f5;
 }
 
 .section-row:active .section-left,

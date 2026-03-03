@@ -229,7 +229,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--text-white);
-    border-bottom: 1px solid var(--border-neutral-subtle);
+    border-bottom: 1px solid var(--border-neutral-soft);
 }
 
 .header-left {
