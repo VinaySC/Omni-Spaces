@@ -538,7 +538,7 @@
     transition: all 0.2s ease;
 }
 
-.reply-btn:active {
+.reply-btn:active>* {
     transform: scale(0.98);
 }
 
@@ -598,7 +598,7 @@
     transition: all 0.2s ease;
 }
 
-.btn-add-note:active {
+.btn-add-note:active>* {
     transform: scale(0.98);
 }
 
@@ -636,7 +636,7 @@
     pointer-events: none;
     transition:
         opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top right;
 }
 
@@ -670,6 +670,9 @@
 
 .dropdown-item:active {
     background-color: var(--background-neutral-soft);
+}
+
+.dropdown-item:active>* {
     transform: scale(0.98);
 }
 
@@ -690,4 +693,8 @@
     font-size: 14px;
     color: var(--text-neutral-default);
     font-weight: 400;
+}
+
+.icon-btn:active>* {
+    transform: scale(0.98);
 }
