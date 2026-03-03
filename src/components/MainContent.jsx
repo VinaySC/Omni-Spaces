@@ -38,6 +38,12 @@ const MainContent = () => {
         }
     }, [isResizing]);
 
+    const handleMouseMoveResizer = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+    };
+
     useEffect(() => {
         window.addEventListener('mousemove', resize);
         window.addEventListener('mouseup', stopResizing);
@@ -52,7 +58,13 @@ const MainContent = () => {
             <div className="left-side" style={{ width: leftWidth }}>
                 <ConversationList selectedId={selectedId} onSelect={handleSelect} readIds={readIds} />
             </div>
-            <div className="resizer-v" onMouseDown={startResizing} />
+            <div className="resizer-v" onMouseDown={startResizing} onMouseMove={handleMouseMoveResizer}>
+                <div className="resizer-handle">
+                    <div className="resizer-line-small" />
+                    <div className="resizer-line-main" />
+                    <div className="resizer-line-small" />
+                </div>
+            </div>
             <div className="right-side">
                 <ConversationView
                     conversation={activeConversation}

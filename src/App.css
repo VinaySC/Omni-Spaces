@@ -9,10 +9,64 @@
   transition: background-color 0.2s;
 }
 
+.resizer-handle {
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.resizer-v::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: var(--text-neutral-default);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+.resizer-line-main {
+  width: 4px;
+  height: 40px;
+  background-color: #475569;
+  border-radius: 20px;
+}
+
+.resizer-line-small {
+  width: 1px;
+  height: 20px;
+  background-color: #94a3b8;
+  border-radius: 20px;
+}
+
+.resizer-v:hover .resizer-handle,
+.resizer-v:active .resizer-handle {
+  opacity: 1;
+}
+
+.resizer-v:hover::before,
+.resizer-v:active::before {
+  opacity: 0.3;
+}
+
 .resizer-v:hover,
 .resizer-v:active {
-  background-color: var(--text-neutral-default);
-  width: 2px;
+  background-color: transparent;
 }
 
 /* Add a bigger hit area for the resizer */

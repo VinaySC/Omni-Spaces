@@ -25,6 +25,12 @@ function App() {
     }
   }, [isResizing]);
 
+  const handleMouseMoveResizer = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   useEffect(() => {
     window.addEventListener('mousemove', resize);
     window.addEventListener('mouseup', stopResizing);
@@ -40,7 +46,13 @@ function App() {
         <SideNavbar />
         <div className="inner-container">
           <MainContent />
-          <div className="resizer-v" onMouseDown={startResizing} />
+          <div className="resizer-v" onMouseDown={startResizing} onMouseMove={handleMouseMoveResizer}>
+            <div className="resizer-handle">
+              <div className="resizer-line-small" />
+              <div className="resizer-line-main" />
+              <div className="resizer-line-small" />
+            </div>
+          </div>
           <div style={{ width: detailsWidth, flexShrink: 0 }}>
             <DetailsPanel />
           </div>
