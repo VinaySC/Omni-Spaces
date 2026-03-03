@@ -11,7 +11,7 @@
 
 .resizer-v:hover,
 .resizer-v:active {
-  background-color: var(--border-brand-emphasis);
+  background-color: var(--text-neutral-default);
   width: 2px;
 }
 
