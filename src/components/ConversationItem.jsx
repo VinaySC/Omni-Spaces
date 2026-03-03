@@ -22,11 +22,19 @@ const ConversationItem = ({ id, name, time, subject, snippet, channel, tags, unr
             <div className="convo-bottom">
                 {tags && tags.length > 0 && (
                     <div className="convo-tags">
-                        {tags.map((tag, idx) => (
-                            <span key={idx} className="list-tag tag-purple">
-                                {tag}
-                            </span>
-                        ))}
+                        {tags.map((tag, idx) => {
+                            let tagClass = "list-tag tag-purple";
+                            if (tag === 'Support') {
+                                tagClass = "tag-badge tag-blue";
+                            } else if (tag === 'Finance') {
+                                tagClass = "tag-badge tag-violet";
+                            }
+                            return (
+                                <span key={idx} className={tagClass}>
+                                    {tag}
+                                </span>
+                            );
+                        })}
                     </div>
                 )}
                 <p className="convo-snippet">{snippet}</p>

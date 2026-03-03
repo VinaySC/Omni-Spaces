@@ -50,7 +50,7 @@ export const MOCK_CONVERSATIONS = [
         summary: 'Account balance discrepancy reported; customer sees negative balance.',
         snippet: "Hey, I think there's an issue with my account balance.",
         unread: false,
-        tags: ['Finance', 'High'],
+        tags: ['Finance'],
         messages: [
             {
                 id: 301,
@@ -71,7 +71,7 @@ export const MOCK_CONVERSATIONS = [
         summary: 'Potential unauthorized access detected in logs; multiple failed login attempts from unknown IP.',
         snippet: 'Security breach suspected; unauthorized access to user data...',
         unread: false,
-        tags: ['Alert'],
+        tags: [],
         messages: [
             {
                 id: 401,
@@ -92,7 +92,7 @@ export const MOCK_CONVERSATIONS = [
         summary: 'Multiple users restricted from accessing dashboard; password reset loop reported.',
         snippet: 'Login issues; users are unable to access their accounts...',
         unread: true,
-        tags: ['Tech'],
+        tags: [],
         messages: [
             {
                 id: 501,

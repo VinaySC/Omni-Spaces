@@ -96,7 +96,7 @@
 }
 
 .convo-item:hover {
-    background-color: #F5F5F5;
+    background-color: var(--background-neutral-faint);
 }
 
 .convo-item.selected {
@@ -549,7 +549,7 @@
 }
 
 .reply-btn.secondary {
-    background-color: #f7f7f7;
+    background-color: var(--background-neutral-faint);
 }
 
 .reply-btn.secondary:hover {
@@ -582,7 +582,7 @@
 .btn-add-note {
     width: 52px;
     height: 32px;
-    background-color: var(--background-neutral-faint, #f7f7f7);
+    background-color: var(--background-neutral-faint);
     color: var(--text-neutral-default, #2d2d2d);
     border: none;
     border-radius: 6px;

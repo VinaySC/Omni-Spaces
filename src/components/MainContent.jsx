@@ -7,6 +7,7 @@ import { MOCK_CONVERSATIONS } from '../data/mockConversations';
 const MainContent = () => {
     const [selectedId, setSelectedId] = React.useState(MOCK_CONVERSATIONS[0].id);
     const [displayId, setDisplayId] = React.useState(MOCK_CONVERSATIONS[0].id);
+    const [readIds, setReadIds] = React.useState(new Set([MOCK_CONVERSATIONS[0].id]));
     const [leftWidth, setLeftWidth] = useState(300); // Initial pixel width
     const [isResizing, setIsResizing] = useState(false);
 
@@ -17,6 +18,7 @@ const MainContent = () => {
 
         setSelectedId(id);
         setDisplayId(id);
+        setReadIds(prev => new Set(prev).add(id));
     };
 
     const startResizing = useCallback(() => {
@@ -48,7 +50,7 @@ const MainContent = () => {
     return (
         <div className="main-content">
             <div className="left-side" style={{ width: leftWidth }}>
-                <ConversationList selectedId={selectedId} onSelect={handleSelect} />
+                <ConversationList selectedId={selectedId} onSelect={handleSelect} readIds={readIds} />
             </div>
             <div className="resizer-v" onMouseDown={startResizing} />
             <div className="right-side">
