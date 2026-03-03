@@ -1,16 +1,60 @@
-# React + Vite
+# Omni-Spaces
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Omni-Spaces**, a modern, premium web application built with React and Vite. This project implements a sophisticated UI layout based on specific design tokens and interactions, featuring a scalable structure with a sidebar, conversation list, main view, and an collapsible details panel.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Premium UI Layout**: Follows a precise 20/60/20 column layout that is fully resizable.
+- **Instant Flow**: Interactions are designed to be instant without lag or visual delay.
+- **Refined Conversation List**:
+  - Pixel-perfect padding (16px vertical, full-width items).
+  - Consistent gaps between items and dividers.
+  - Custom hover (`#F5F5F5`) and active states with 8px rounded corners.
+  - Automatically selects the first conversation by default.
+- **Filter Dropdown**: Custom dropdown filter menu with specialized hover states (`#F7F7F7`).
+- **Sidebar Navigation**: Accordion menus with smooth transitions, unread badges, and custom SVG icons.
+- **Details Panel**: A fully collapsible right-side panel with dynamic tab indicators that resize to precisely match the active tab text.
+- **Theming System**: Powered by CSS variables designed directly from Figma, supporting semantic token usage across the app.
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Follow these instructions to set up the project locally.
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+You will need [Node.js](https://nodejs.org/) installed on your machine. We recommend the latest LTS version.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/VinaySC/Omni-Spaces.git
+   cd Omni-Spaces
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **View the app:**
+   Open your browser and navigate to the URL provided in your terminal (typically `http://localhost:5173`).
+
+## Project Structure
+
+The codebase is organized to encapsulate components and styling cleanly:
+- `src/components/`: Contains all main UI components (`SideNavbar`, `MainContent`, `ConversationList`, `ConversationView`, `DetailsPanel`, `FilterDropdown`).
+- `src/components/icons/`: A dedicated library of inline SVG components.
+- `src/data/`: Centralized mock data (`mockConversations.js`) driving the dynamic UI.
+- `src/App.jsx` & `src/index.css`: The root layout structure and global CSS variables.
+
+## Tech Stack
+
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling**: Vanilla CSS utilizing CSS Custom Properties (Variables)
+- **Icons**: Custom inline SVGs and [Lucide React](https://lucide.dev/)
