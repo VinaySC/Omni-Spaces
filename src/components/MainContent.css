@@ -65,12 +65,16 @@
     align-items: center;
     justify-content: center;
     color: var(--text-neutral-default);
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     cursor: pointer;
 }
 
 .icon-btn:hover {
     background-color: var(--background-neutral-default);
+}
+
+.icon-btn:active {
+    transform: scale(0.98);
 }
 
 /* Scrollable Container */
@@ -93,12 +97,16 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease, transform 0.1s ease;
     border: 1px solid transparent;
 }
 
 .convo-item:hover {
     background-color: var(--background-neutral-faint);
+}
+
+.convo-item:active {
+    transform: scale(0.98);
 }
 
 .convo-item.selected {
@@ -366,9 +374,13 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease, transform 0.1s ease;
     z-index: 1;
     user-select: none;
+}
+
+.view-tab:active {
+    transform: scale(0.98);
 }
 
 .view-tab .tab-label {
@@ -536,10 +548,10 @@
     font-weight: 500;
     color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease, transform 0.1s ease;
 }
 
-.reply-btn:active>* {
+.reply-btn:active {
     transform: scale(0.98);
 }
 
@@ -596,10 +608,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease, transform 0.1s ease;
 }
 
-.btn-add-note:active>* {
+.btn-add-note:active {
     transform: scale(0.98);
 }
 
@@ -671,9 +683,6 @@
 
 .dropdown-item:active {
     background-color: var(--background-neutral-soft);
-}
-
-.dropdown-item:active>* {
     transform: scale(0.98);
 }
 
@@ -696,6 +705,7 @@
     font-weight: 400;
 }
 
-.icon-btn:active>* {
+/* Global active scale for generic icon containers if they aren't caught by classes */
+.icon-btn:active {
     transform: scale(0.98);
 }

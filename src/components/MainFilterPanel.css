@@ -72,7 +72,11 @@
     border: 1px solid #e7e1dc;
     border-radius: 8px;
     cursor: pointer;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, transform 0.1s ease;
+}
+
+.field-input-wrapper:active {
+    transform: scale(0.98);
 }
 
 .field-input-wrapper:hover {
@@ -162,8 +166,13 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s, transform 0.1s ease;
     border: none;
+}
+
+.btn-cancel:active,
+.btn-save-view:active {
+    transform: scale(0.98);
 }
 
 .btn-cancel {
@@ -184,9 +193,9 @@
     background-color: #eeeeee;
 }
 
-/* Active scale for inner components */
-.btn-cancel:active>*,
-.btn-save-view:active>*,
-.close-btn:active>* {
+/* Active scale for components */
+.btn-cancel:active,
+.btn-save-view:active,
+.close-btn:active {
     transform: scale(0.98);
 }
