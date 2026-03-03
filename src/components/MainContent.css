@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    user-select: none;
 }
 
 .right-side {
@@ -366,6 +367,7 @@
     gap: 8px;
     transition: color 0.2s ease;
     z-index: 1;
+    user-select: none;
 }
 
 .view-tab .tab-label {
@@ -623,6 +625,7 @@
     top: 104px;
     /* Adjusted to sit below the subject-header menu icon */
     width: 196px;
+    user-select: none;
     background-color: var(--text-white);
     border: 1px solid #e7e1dc;
     border-radius: 8px;

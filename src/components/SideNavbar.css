@@ -8,6 +8,7 @@
     position: relative;
     background-color: var(--background-canvas);
     overflow-y: auto;
+    user-select: none;
 }
 
 .sidenav::-webkit-scrollbar {

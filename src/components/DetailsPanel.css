@@ -17,6 +17,7 @@
     justify-content: space-between;
     padding: 0 var(--space-xl);
     border-bottom: 2px solid var(--border-light);
+    user-select: none;
 }
 
 .tabs-container {
@@ -38,6 +39,7 @@
     align-items: center;
     transition: all 0.2s ease;
     z-index: 2;
+    user-select: none;
 }
 
 .tab-item.active {
@@ -183,6 +185,7 @@
     background: none;
     border: none;
     outline: none;
+    user-select: none;
 }
 
 .section-row {
