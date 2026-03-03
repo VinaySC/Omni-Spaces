@@ -77,7 +77,7 @@
 }
 
 .action-button:hover {
-    background-color: var(--background-neutral-default);
+    background-color: #f5f5f5;
 }
 
 .divider {
@@ -131,7 +131,7 @@
 }
 
 .nav-link:hover {
-    background-color: var(--background-neutral-default);
+    background-color: #f5f5f5;
 }
 
 .nav-content {
