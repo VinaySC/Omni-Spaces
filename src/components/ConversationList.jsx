@@ -16,13 +16,15 @@ const ConversationList = ({ selectedId, onSelect }) => {
                 </div>
             </div>
             <div className="conversations-scroll">
-                {MOCK_CONVERSATIONS.map(convo => (
-                    <ConversationItem
-                        key={convo.id}
-                        {...convo}
-                        isSelected={selectedId === convo.id}
-                        onClick={() => onSelect(convo.id)}
-                    />
+                {MOCK_CONVERSATIONS.map((convo, index) => (
+                    <React.Fragment key={convo.id}>
+                        <ConversationItem
+                            {...convo}
+                            isSelected={selectedId === convo.id}
+                            onClick={() => onSelect(convo.id)}
+                        />
+                        {index < MOCK_CONVERSATIONS.length - 1 && <div className="list-divider" />}
+                    </React.Fragment>
                 ))}
             </div>
         </>

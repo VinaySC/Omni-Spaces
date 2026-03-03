@@ -1,20 +1,60 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './MainContent.css';
 import ConversationList from './ConversationList';
 import ConversationView from './ConversationView';
 import { MOCK_CONVERSATIONS } from '../data/mockConversations';
 
 const MainContent = () => {
-    const [selectedId, setSelectedId] = React.useState(2);
-    const selectedConversation = MOCK_CONVERSATIONS.find(c => c.id === selectedId);
+    const [selectedId, setSelectedId] = React.useState(MOCK_CONVERSATIONS[0].id);
+    const [displayId, setDisplayId] = React.useState(MOCK_CONVERSATIONS[0].id);
+    const [leftWidth, setLeftWidth] = useState(300); // Initial pixel width
+    const [isResizing, setIsResizing] = useState(false);
+
+    const activeConversation = MOCK_CONVERSATIONS.find(c => c.id === displayId);
+
+    const handleSelect = (id) => {
+        if (id === selectedId) return;
+
+        setSelectedId(id);
+        setDisplayId(id);
+    };
+
+    const startResizing = useCallback(() => {
+        setIsResizing(true);
+    }, []);
+
+    const stopResizing = useCallback(() => {
+        setIsResizing(false);
+    }, []);
+
+    const resize = useCallback((mouseMoveEvent) => {
+        if (isResizing) {
+            const newWidth = mouseMoveEvent.clientX - 264 - 12;
+            if (newWidth > 200 && newWidth < 600) {
+                setLeftWidth(newWidth);
+            }
+        }
+    }, [isResizing]);
+
+    useEffect(() => {
+        window.addEventListener('mousemove', resize);
+        window.addEventListener('mouseup', stopResizing);
+        return () => {
+            window.removeEventListener('mousemove', resize);
+            window.removeEventListener('mouseup', stopResizing);
+        };
+    }, [resize, stopResizing]);
 
     return (
         <div className="main-content">
-            <div className="left-side">
-                <ConversationList selectedId={selectedId} onSelect={setSelectedId} />
+            <div className="left-side" style={{ width: leftWidth }}>
+                <ConversationList selectedId={selectedId} onSelect={handleSelect} />
             </div>
+            <div className="resizer-v" onMouseDown={startResizing} />
             <div className="right-side">
-                <ConversationView conversation={selectedConversation} />
+                <ConversationView
+                    conversation={activeConversation}
+                />
             </div>
         </div>
     );

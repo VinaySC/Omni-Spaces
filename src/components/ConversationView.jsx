@@ -1,8 +1,12 @@
 import React from 'react';
 import { PrintTopBarIcon, VerticalMenuIcon, AIIcon, ChevronDownIcon, ReplyIcon, ForwardIcon, MailThreadTopBarIcon, ConversationIcon, ReplyAllIcon, ActivityIcon, InternalThreadsIcon, CollapseTopBarIcon } from './icons';
+import FilterDropdown from './FilterDropdown';
 
 const ConversationView = ({ conversation }) => {
     const [activeTab, setActiveTab] = React.useState('Conversation');
+    const [isFilterOpen, setIsFilterOpen] = React.useState(false);
+    const filterAnchorRef = React.useRef(null);
+
     const tabs = [
         { name: 'Conversation', icon: <ConversationIcon size={16} /> },
         { name: 'Activity', icon: <ActivityIcon size={16} /> },
@@ -12,6 +16,10 @@ const ConversationView = ({ conversation }) => {
     if (!conversation) {
         return <div className="convo-view empty">Select a conversation</div>;
     }
+
+    const toggleFilter = () => {
+        setIsFilterOpen(!isFilterOpen);
+    };
 
     return (
         <div className="convo-view">
@@ -42,11 +50,22 @@ const ConversationView = ({ conversation }) => {
             {/* Subject Area */}
             <div className="subject-area">
                 <div className="subject-header">
-                    <h1 className="subject-title">{conversation.subject}</h1>
-                    <div className="icon-btn">
+                    <h1 className="subject-title">
+                        {conversation.subject}
+                    </h1>
+                    <div
+                        className={`icon-btn ${isFilterOpen ? 'active' : ''}`}
+                        onClick={toggleFilter}
+                        ref={filterAnchorRef}
+                    >
                         <VerticalMenuIcon size={20} />
                     </div>
                 </div>
+                <FilterDropdown
+                    isOpen={isFilterOpen}
+                    onClose={() => setIsFilterOpen(false)}
+                    anchorRef={filterAnchorRef}
+                />
                 <div className="ai-summary">
                     <AIIcon size={16} className="ai-sum-icon" />
                     <p className="ai-text">
@@ -58,7 +77,7 @@ const ConversationView = ({ conversation }) => {
             {/* Tabs */}
             <div className="view-tabs">
                 <div className="tabs-container">
-                    {tabs.map((tab, index) => (
+                    {tabs.map((tab) => (
                         <div
                             key={tab.name}
                             className={`view-tab ${activeTab === tab.name ? 'active' : ''}`}

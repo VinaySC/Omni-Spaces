@@ -15,6 +15,7 @@
   --background-info-subtle: #fafdff;
 
   --border-neutral-subtle: #e5e5e5;
+  --border-neutral-soft: #f2eeea;
   --border-slate-blue-subtle: #e2e8f0;
   --border-brand-emphasis: #ee8864;
   --border-light: #ecebe7;
@@ -63,6 +64,34 @@ body {
   color: var(--text-neutral-default);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  padding: 12px;
+  gap: 12px;
+  background-color: var(--background-canvas);
+  min-width: 0;
+}
+
+.inner-container {
+  display: flex;
+  flex: 1;
+  background-color: var(--text-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-neutral-subtle);
+  overflow: hidden;
+  height: 100%;
 }
 
 button {

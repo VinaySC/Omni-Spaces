@@ -8,7 +8,7 @@ import {
     ContactIcon,
     AccountIcon,
     RightChevronIcon,
-    CollapseIcon
+    CollapseRightPanelIcon
 } from './icons';
 import './DetailsPanel.css';
 
@@ -65,7 +65,7 @@ export default function DetailsPanel() {
                     ></div>
                 </div>
                 <button className="panel-action-btn">
-                    <CollapseIcon size={16} />
+                    <CollapseRightPanelIcon size={16} />
                 </button>
             </div>
 
