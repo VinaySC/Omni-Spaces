@@ -46,6 +46,7 @@
     align-items: center;
     gap: 8px;
     background-color: var(--text-white);
+    border-bottom: 1px solid var(--border-neutral-soft);
 }
 
 .header-title {
