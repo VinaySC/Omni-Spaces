@@ -282,7 +282,10 @@
     justify-content: space-between;
     padding: 0 12px;
     flex-shrink: 0;
-    margin-bottom: var(--space-md);
+    position: sticky;
+    bottom: 0;
+    background-color: var(--background-canvas);
+    z-index: 10;
 }
 
 .user-profile {

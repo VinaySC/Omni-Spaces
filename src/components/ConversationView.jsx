@@ -66,12 +66,12 @@ const ConversationView = ({ conversation }) => {
                     onClose={() => setIsFilterOpen(false)}
                     anchorRef={filterAnchorRef}
                 />
-                <div className="ai-summary">
+                <button className="ai-summary">
                     <AIIcon size={16} className="ai-sum-icon" />
                     <p className="ai-text">
                         Generate AI Summary
                     </p>
-                </div>
+                </button>
             </div>
 
 
