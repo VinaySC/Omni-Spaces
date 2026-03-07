@@ -69,33 +69,11 @@ const ConversationView = ({ conversation }) => {
                 <div className="ai-summary">
                     <AIIcon size={16} className="ai-sum-icon" />
                     <p className="ai-text">
-                        {conversation.summary}
+                        Generate AI Summary
                     </p>
                 </div>
             </div>
 
-            {/* Tabs */}
-            <div className="view-tabs">
-                <div className="tabs-container">
-                    {tabs.map((tab) => (
-                        <div
-                            key={tab.name}
-                            className={`view-tab ${activeTab === tab.name ? 'active' : ''}`}
-                            onClick={() => setActiveTab(tab.name)}
-                        >
-                            {tab.icon}
-                            <span className="tab-label">{tab.name}</span>
-                        </div>
-                    ))}
-                    <div
-                        className="tab-indicator"
-                        style={{
-                            left: `${tabs.findIndex(t => t.name === activeTab) * (100 / tabs.length)}%`,
-                            width: `${100 / tabs.length}%`
-                        }}
-                    />
-                </div>
-            </div>
 
             {/* Message Thread */}
             <div className="message-thread">

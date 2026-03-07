@@ -111,7 +111,6 @@ export default function DetailsPanel() {
                             <div className="metadata-row">
                                 <span className="metadata-label ai-sentiment-label">
                                     AI Sentiment
-                                    <span className="ai-sparkle">✦</span>
                                 </span>
                                 <div className="metadata-value">
                                     <div className="meta-icon-wrapper sentiment-icon">

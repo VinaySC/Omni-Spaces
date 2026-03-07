@@ -14,10 +14,10 @@
     height: 48px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 var(--space-xl);
     border-bottom: 2px solid var(--border-light);
     user-select: none;
+    gap: var(--space-md);
 }
 
 .tabs-container {
@@ -43,9 +43,9 @@
     cursor: pointer;
 }
 
-.tab-item:active {
+/* .tab-item:active {
     transform: scale(0.98);
-}
+} */
 
 .tab-item.active {
     color: var(--text-neutral-default);
@@ -69,6 +69,7 @@
     justify-content: center;
     transition: background-color 0.2s ease, transform 0.1s ease;
     cursor: pointer;
+    margin-left: auto;
 }
 
 .panel-action-btn:hover {
@@ -212,12 +213,13 @@
     background-color: #f5f5f5;
 }
 
-.section-row:active {
+/* .section-row:active scaling removed to prevent background from shrinking */
+/* .section-row:active {
     transform: scale(0.98);
-}
+} */
 
 .section-block.expanded .chevron-icon {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 
 .section-block.expanded .section-row {
@@ -381,8 +383,12 @@
 }
 
 .panel-action-btn:active,
-.add-tag:active,
-.section-row:active {
+.add-tag:active {
+    transform: scale(0.98);
+}
+
+.section-row:active .section-left,
+.section-row:active .section-right {
     transform: scale(0.98);
 }
 
