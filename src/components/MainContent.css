@@ -332,7 +332,19 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 2px 0;
+    padding: 4px 8px;
+    margin-left: -8px;
+    width: fit-content;
+    border-radius: 6px;
+    transition: all 0.2s ease, transform 0.1s ease;
+}
+
+.ai-summary:hover {
+    background-color: var(--background-accents-voilet-soft);
+}
+
+.ai-summary:active {
+    transform: scale(0.98);
 }
 
 .ai-sum-icon {
@@ -564,11 +576,13 @@
 }
 
 .reply-btn.secondary {
-    background-color: var(--background-neutral-faint);
+    background-color: var(--text-white);
+    border: 1px solid var(--border-neutral-soft);
+    color: var(--text-neutral-default);
 }
 
 .reply-btn.secondary:hover {
-    background-color: #eeeeee;
+    background-color: var(--background-neutral-faint);
 }
 
 /* Footer Section */
