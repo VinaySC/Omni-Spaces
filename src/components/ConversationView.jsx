@@ -85,7 +85,6 @@ const ConversationView = ({ conversation }) => {
                                 <div className="sender-top">
                                     <div className="sender-name-group">
                                         <span className="sender-name">{msg.sender}</span>
-                                        <span className="sender-email">&lt;{msg.email}&gt;</span>
                                     </div>
                                     <div className="message-actions">
                                         <span className="message-time">{msg.time}</span>

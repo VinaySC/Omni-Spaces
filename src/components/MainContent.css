@@ -439,6 +439,7 @@
 .message-header {
     display: flex;
     gap: 12px;
+    align-items: center;
 }
 
 .sender-avatar {
@@ -456,24 +457,12 @@
     font-size: 20px;
 }
 
-.sender-avatar::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 10px;
-    height: 10px;
-    background-color: #64758b;
-    /* Offline grey */
-    border: 2px solid white;
-    border-radius: 50%;
-}
 
 .sender-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0px;
     min-width: 0;
 }
 
