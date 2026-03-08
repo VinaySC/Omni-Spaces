@@ -76,7 +76,7 @@
 }
 
 .field-input-wrapper:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .field-input-wrapper:hover {
@@ -172,7 +172,7 @@
 
 .btn-cancel:active,
 .btn-save-view:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .btn-cancel {
@@ -197,5 +197,5 @@
 .btn-cancel:active,
 .btn-save-view:active,
 .close-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }

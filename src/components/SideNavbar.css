@@ -74,7 +74,7 @@
 }
 
 .action-button:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .action-button:hover {
@@ -128,7 +128,7 @@
 }
 
 .nav-link:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .nav-link:hover {
@@ -302,7 +302,7 @@
 }
 
 .user-profile:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .profile-image {

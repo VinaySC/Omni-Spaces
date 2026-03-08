@@ -28,7 +28,7 @@ export const MOCK_CONVERSATIONS = [
         subject: '401 Error When Using Your API Authentication Endpoint',
         summary: 'Customer reports authentication failure (401) when connecting to the production API; works fine in sandbox.',
         snippet: 'I am getting a 401 error when I try to...',
-        unread: false,
+        unread: true,
         tags: ['Support'],
         messages: [
             {
@@ -49,7 +49,7 @@ export const MOCK_CONVERSATIONS = [
         subject: 'Issue with the app',
         summary: 'Account balance discrepancy reported; customer sees negative balance.',
         snippet: "Hey, I think there's an issue with my account balance.",
-        unread: false,
+        unread: true,
         tags: ['Finance'],
         messages: [
             {

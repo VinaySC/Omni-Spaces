@@ -44,7 +44,7 @@
 }
 
 /* .tab-item:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 } */
 
 .tab-item.active {
@@ -83,7 +83,7 @@
 
 /* Overriding to match user's 0.98x request for standard interactive blocks */
 .panel-action-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .panel-content {
@@ -215,7 +215,7 @@
 
 /* .section-row:active scaling removed to prevent background from shrinking */
 /* .section-row:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 } */
 
 .section-block.expanded .chevron-icon {
@@ -384,12 +384,12 @@
 
 .panel-action-btn:active,
 .add-tag:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .section-row:active .section-left,
 .section-row:active .section-right {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 

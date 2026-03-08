@@ -26,7 +26,6 @@ const ConversationList = ({ selectedId, onSelect, readIds, onFilterClick }) => {
                                 isSelected={selectedId === convo.id}
                                 onClick={() => onSelect(convo.id)}
                             />
-                            {index < MOCK_CONVERSATIONS.length - 1 && <div className="list-divider" />}
                         </React.Fragment>
                     );
                 })}

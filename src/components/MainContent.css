@@ -74,7 +74,7 @@
 }
 
 .icon-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 /* Scrollable Container */
@@ -89,38 +89,122 @@
 
 /* Conversation Item */
 .convo-item {
-    margin: 8px 0;
-    /* 2px gap from divider if divider is between */
+    margin: 2px 0;
+    /* Vertical breathing room */
     padding: 16px 12px;
     border-radius: 8px;
+    /* Restored corner radius */
+    border: none;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 4px;
-    transition: all 0.2s ease, transform 0.1s ease;
-    border: 1px solid transparent;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    background-color: var(--text-white);
+    position: relative;
+}
+
+.convo-item:active {
+    transform: scale(0.99);
+}
+
+/* Divider centered between items */
+.convo-item::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    /* Centered in the 4px vertical gap */
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--border-neutral-soft);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.convo-item:last-child::before {
+    display: none;
 }
 
 .convo-item:hover {
     background-color: var(--background-neutral-faint);
 }
 
-.convo-item:active {
-    transform: scale(0.98);
-}
-
 .convo-item.selected {
     background-color: var(--background-info-subtle);
-    border: 1px solid var(--border-info-default);
-    position: relative;
-    z-index: 1;
 }
 
-/* Divider Styling */
-.list-divider {
-    height: 1px;
-    background-color: var(--border-neutral-subtle);
-    margin: 0;
+/* Selection border using pseudo-element to prevent shifting */
+.convo-item.selected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--border-info-default);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Hide divider lines above and below selected card */
+.convo-item:has(+ .convo-item.selected)::before,
+.convo-item.selected::before {
+    display: none;
+}
+
+.convo-item:has(+ .convo-item.selected) {
+    border-bottom-color: transparent;
+}
+
+/* Base card typography (Read State - Default) */
+.convo-item .sender-name {
+    font-size: 14px;
+    font-weight: 500;
+    /* Read: Medium */
+    color: var(--text-neutral-default);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.convo-item .convo-headline {
+    font-size: 14px;
+    font-weight: 400;
+    /* Read: Regular */
+    color: var(--text-neutral-default);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.convo-item .convo-snippet {
+    font-size: 14px;
+    font-weight: 400;
+    /* Regular */
+    color: var(--text-neutral-subtle);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Unread State Overrides */
+.convo-item.unread .sender-name {
+    font-weight: 600;
+    /* Unread: Semi-bold */
+}
+
+.convo-item.unread .convo-headline {
+    font-weight: 500;
+    /* Unread: Medium */
+}
+
+.unread-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #0081C2;
+    border-radius: 50%;
     flex-shrink: 0;
 }
 
@@ -129,6 +213,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    width: 100%;
 }
 
 .convo-sender {
@@ -139,59 +224,34 @@
     min-width: 0;
 }
 
-.sender-icon {
-    flex-shrink: 0;
-    color: var(--text-neutral-default);
+.platform-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
 }
 
-.sender-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-neutral-default);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.convo-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .convo-time {
     font-size: 12px;
     font-weight: 500;
-    color: var(--text-neutral-faint);
-    flex-shrink: 0;
-}
-
-.convo-headline {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-neutral-default);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.convo-bottom {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    min-width: 0;
-}
-
-.convo-snippet {
-    flex: 1;
-    font-size: 14px;
-    font-weight: 400;
     color: var(--text-neutral-subtle);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex-shrink: 0;
 }
 
-.unread-dot {
-    width: 7px;
-    height: 7px;
-    background-color: #0081C2;
-    border-radius: 50%;
-    flex-shrink: 0;
+.convo-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 32px;
+    /* Alignment with name */
 }
 
 /* Tags in List */
@@ -344,7 +404,7 @@
 }
 
 .ai-summary:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .ai-sum-icon {
@@ -392,7 +452,7 @@
 }
 
 .view-tab:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 .view-tab .tab-label {
@@ -478,7 +538,7 @@
     gap: 4px;
 }
 
-.sender-name {
+.message-item .sender-name {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-neutral-default);
