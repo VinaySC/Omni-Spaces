@@ -52,14 +52,20 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
+    align-items: stretch;
 }
 
 .field-label {
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
     font-size: 14px;
     font-weight: 500;
     color: var(--text-neutral-subtle);
+    user-select: none;
+    margin: 0;
+    white-space: normal !important;
+    overflow: visible !important;
 }
 
 .field-input-wrapper {
@@ -72,11 +78,7 @@
     border: 1px solid #e7e1dc;
     border-radius: 8px;
     cursor: pointer;
-    transition: border-color 0.2s, transform 0.1s ease;
-}
-
-.field-input-wrapper:active {
-    transform: scale(0.99);
+    transition: border-color 0.2s;
 }
 
 .field-input-wrapper:hover {
@@ -166,13 +168,8 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s, transform 0.1s ease;
+    transition: all 0.2s;
     border: none;
-}
-
-.btn-cancel:active,
-.btn-save-view:active {
-    transform: scale(0.99);
 }
 
 .btn-cancel {
@@ -193,9 +190,4 @@
     background-color: #eeeeee;
 }
 
-/* Active scale for components */
-.btn-cancel:active,
-.btn-save-view:active,
-.close-btn:active {
-    transform: scale(0.99);
-}
+/* Removed generic active scale for filter panel components */

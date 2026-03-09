@@ -62,7 +62,8 @@ const MainContent = () => {
                     selectedId={selectedId}
                     onSelect={handleSelect}
                     readIds={readIds}
-                    onFilterClick={() => setIsMainFilterOpen(true)}
+                    isFilterActive={isMainFilterOpen}
+                    onFilterClick={() => setIsMainFilterOpen(prev => !prev)}
                 />
             </div>
             <div className="resizer-v" onMouseDown={startResizing} onMouseMove={handleMouseMoveResizer}>
