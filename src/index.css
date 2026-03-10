@@ -79,10 +79,11 @@ body {
 .content-wrapper {
   display: flex;
   flex: 1;
-  padding: 12px;
-  gap: 12px;
+  padding: 12px 12px 12px 0;
+  gap: 0;
   background-color: var(--background-canvas);
   min-width: 0;
+  position: relative;
 }
 
 .inner-container {
@@ -93,6 +94,8 @@ body {
   border: 1px solid var(--border-neutral-subtle);
   overflow: hidden;
   height: 100%;
+  position: relative;
+  z-index: 3;
 }
 
 button {

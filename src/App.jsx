@@ -2,11 +2,16 @@ import React, { useState, useCallback, useEffect } from 'react';
 import SideNavbar from './components/SideNavbar';
 import MainContent from './components/MainContent';
 import DetailsPanel from './components/DetailsPanel';
-import './App.css'; // We'll create this for resizer styles
+import TagsBar from './components/TagsBar';
+import './App.css';
 
 function App() {
-  const [detailsWidth, setDetailsWidth] = useState(320); // Initial pixel width
+  const [detailsWidth, setDetailsWidth] = useState(320);
   const [isResizing, setIsResizing] = useState(false);
+
+  // Restored TagsBar state
+  const [tagsContext, setTagsContext] = useState(null);
+  const [isTagsClosing, setIsTagsClosing] = useState(false);
 
   const startResizing = useCallback(() => {
     setIsResizing(true);
@@ -31,6 +36,20 @@ function App() {
     e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
   };
 
+  // Restored TagsBar handlers
+  const handleTagsClick = (context) => {
+    setTagsContext(context);
+    setIsTagsClosing(false);
+  };
+
+  const handleTagsBack = () => {
+    setIsTagsClosing(true);
+    setTimeout(() => {
+      setTagsContext(null);
+      setIsTagsClosing(false);
+    }, 350);
+  };
+
   useEffect(() => {
     window.addEventListener('mousemove', resize);
     window.addEventListener('mouseup', stopResizing);
@@ -43,7 +62,19 @@ function App() {
   return (
     <div className="app-container">
       <div className="content-wrapper">
-        <SideNavbar />
+        {/* z-index: 1 — always at the back */}
+        <SideNavbar onTagsClick={handleTagsClick} isTagsActive={!!tagsContext} activeTagsContext={tagsContext} />
+
+        {/* z-index: 2 — slides in over sidenav, under conversation list */}
+        {tagsContext && (
+          <TagsBar
+            context={tagsContext}
+            onBack={handleTagsBack}
+            isClosing={isTagsClosing}
+          />
+        )}
+
+        {/* z-index: 3 — always on top */}
         <div className="inner-container">
           <MainContent />
           <div className="resizer-v" onMouseDown={startResizing} onMouseMove={handleMouseMoveResizer}>
@@ -62,4 +93,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
